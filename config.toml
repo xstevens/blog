@@ -1,0 +1,8 @@
+baseURL = "http://naughty-fermat-856dfa.netlify.com/"
+languageCode = "en-us"
+title = "Xavier Stevens' Blog"
+theme = "basics"
+
+[params]
+    author = "Xavier Stevens"
+    github = "xstevens"
