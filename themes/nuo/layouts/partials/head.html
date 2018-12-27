@@ -1,0 +1,113 @@
+<!-- Site & Page Meta Data -->
+{{- $gohugoio := "gohugoio" -}}
+{{- $themeColor := "#5fbf5e" -}}
+{{- $bg := resources.Get (.Site.Params.bg | default "/images/grey-prism.svg") -}}
+{{- $avatar := resources.Get (.Site.Params.avatar | default "/images/avatar.jpg") -}}
+{{- $favicon := resources.Get (.Site.Params.favicon | default "/images/favicon.ico") -}}
+{{- $favicon16 := resources.Get (.Site.Params.favicon16 | default "/images/favicon-16x16.png") -}}
+{{- $favicon32 := resources.Get (.Site.Params.favicon32 | default "/images/favicon-32x32.png") -}}
+{{- $iconWindows := resources.Get (.Site.Params.iconWindows | default "/images/tile-image-windows.png") -}}
+{{- $iconApple := resources.Get (.Site.Params.iconApple | default "/images/touch-icon-apple.png") -}}
+{{- $iconAndroid := resources.Get (.Site.Params.iconAndroid | default "/images/touch-icon-android.png") -}}
+{{- $style := resources.Get "styles/main.scss" | resources.ToCSS | resources.PostCSS | resources.Minify -}}
+
+  {{ if and (eq .Kind "page") (eq .Type "post") }}
+
+  <!-- Page Author & Description -->
+  {{ with .Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+  <meta name="description" content="{{ .Summary | plainify }}">
+
+  <!-- Twitter Card -->
+  {{ if isset .Params "cover" }}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@{{ .Site.Params.twitter | default $gohugoio }}">
+    <meta name="twitter:title" content="{{ .Title }}">
+    <meta name="twitter:description" content="{{ .Summary | plainify }}">
+    <meta name="twitter:image" content="{{ .Params.cover | absURL }}">
+  {{ else }}
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@{{ .Site.Params.twitter | default $gohugoio }}">
+    <meta name="twitter:title" content="{{ .Title }}">
+    <meta name="twitter:description" content="{{ .Summary | plainify }}">
+    <meta name="twitter:image" content="{{ $avatar.RelPermalink }}">
+  {{ end }}
+
+  <!-- Facebook Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:description" content="{{ .Summary | plainify }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ if isset .Params "cover" }}{{ .Params.cover | absURL }}{{ else }}{{ $avatar.RelPermalink }}{{ end }}">
+
+{{ else }}
+
+  <!-- Site Author & Description -->
+  {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+  {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@{{ .Site.Params.twitter | default $gohugoio }}">
+  <meta name="twitter:title" content="{{ if isset .Site.Params "seotitle" }}{{ .Site.Params.seotitle }}{{ else }}{{ .Site.Title }}{{ end }}">
+  {{ with .Site.Params.description }}<meta name="twitter:description" content="{{ . }}">{{ end }}
+  <meta name="twitter:image" content="{{ $avatar.RelPermalink }}">
+
+  <!-- Facebook Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ if isset .Site.Params "seotitle" }}{{ .Site.Params.seotitle }}{{ else }}{{ .Site.Title }}{{ end }}">
+  {{ with .Site.Params.description }}<meta property="og:description" content="{{ . }}">{{ end }}
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ $avatar.RelPermalink }}">
+
+{{ end }}
+
+<!-- Site Generator -->
+<meta name="generator" content="Hugo {{ .Hugo.Version }}">
+
+<!-- Permalink & RSSlink -->
+<link rel="canonical" href="{{ .Permalink }}">
+{{ range .AlternativeOutputFormats -}}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+{{ end -}}
+
+<!-- Rending Prefs -->
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="format-detection" content="telephone=no,email=no,adress=no">
+<meta http-equiv="Cache-Control" content="no-transform">
+
+<!-- SEO Prefs -->
+<meta name="robots" content="index,follow">
+<meta name="referrer" content="origin-when-cross-origin">
+{{ with .Site.Params.googlesiteverification }}<meta name="google-site-verification" content="{{ . }}">{{ end }}
+{{ with .Site.Params.msvalidate }}<meta name="msvalidate.01" content="{{ . }}">{{ end }}
+{{ with .Site.Params.baidusiteverification }}<meta name="baidu-site-verification" content="{{ . }}">{{ end }}
+{{ with .Site.Params.sogousiteverification }}<meta name="sogou_site_verification" content="{{ . }}">{{ end }}
+{{ with .Site.Params.sositeverification }}<meta name="360-site-verification" content="{{ . }}">{{ end }}
+
+<!-- Favicon and Touch icons -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="{{ .Site.Title }}">
+<meta name="msapplication-tooltip" content="{{ .Site.Title }}">
+<meta name='msapplication-navbutton-color' content="{{ $themeColor }}">
+<meta name="msapplication-TileColor" content="{{ $themeColor }}">
+<meta name="msapplication-TileImage" content="{{ $iconWindows.RelPermalink }}">
+<link rel="icon" href="{{ $favicon.RelPermalink }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ $favicon16.RelPermalink }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ $favicon32.RelPermalink }}">
+<link rel="icon" sizes="192x192" href="{{ $iconAndroid.RelPermalink }}">
+<link rel="apple-touch-icon" href="{{ $iconApple.RelPermalink }}">
+
+<!-- Preload -->
+<link rel="preload" href="{{ $style.RelPermalink }}" as="style">
+<link rel="preload" href="{{ $avatar.RelPermalink }}" as="image">
+<link rel="preload" href="{{ $bg.RelPermalink }}" as="image">
+
+<!-- Main Styles -->
+<style>
+  body {
+    background: rgb(244, 243, 241) url('{{ $bg.RelPermalink }}') repeat fixed;
+  }
+</style>
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">

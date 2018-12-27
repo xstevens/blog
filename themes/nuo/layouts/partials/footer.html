@@ -1,0 +1,10 @@
+{{ $script := resources.Get "scripts/index.js" | resources.Minify }}
+
+<!-- Site Footer -->
+<footer class="site-footer">
+  <p>© {{ if eq now.Year 2018 }}2018{{ else }}2018-{{ now.Year }}{{ end }} {{ .Site.Title }}</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
+</footer>
+
+<!-- Main Scripts -->
+<script src="{{ $script.RelPermalink }}"></script>

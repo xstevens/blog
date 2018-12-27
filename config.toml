@@ -1,8 +1,13 @@
-baseURL = "http://naughty-fermat-856dfa.netlify.com/"
+#baseURL = "http://localhost:1313/"
 languageCode = "en-us"
-title = "Xavier Stevens' Blog"
-theme = "basics"
+title = "Exported"
+theme = "nuo"
+copyright = "This work is licensed under a Creative Commons Attribution 4.0 International License."
+PygmentsCodeFences = true
 
 [params]
-    author = "Xavier Stevens"
-    github = "xstevens"
+author = "Xavier Stevens"
+github = "xstevens"
+twitter = "xstevens"
+avatar = "images/avatar.png"
+paginate = 10

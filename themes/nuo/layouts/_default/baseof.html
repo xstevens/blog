@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+
+  <meta charset="utf-8" />
+
+  <!-- Page Title -->
+  <title>
+    {{- block "title" . -}}
+      {{ if eq .Kind "page" }}{{ .Title }}{{ else if isset .Site.Params "seotitle" }}{{ .Site.Params.seotitle }}{{ else }}{{ .Site.Title }}{{ end }}
+    {{- end -}}
+  </title>
+
+  <!-- Shared Head -->
+  {{ partial "head.html" . }}
+
+</head>
+  <body>
+    {{ block "main" . }}{{ end }}
+  </body>
+</html>
