@@ -1,10 +1,7 @@
 @font-face {
   font-family: 'icon';  /* project id 174169 */
-  src: url('//at.alicdn.com/t/font_174169_qmgvd10zwbf.eot');
-  src: url('//at.alicdn.com/t/font_174169_qmgvd10zwbf.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_174169_qmgvd10zwbf.woff') format('woff'),
-  url('//at.alicdn.com/t/font_174169_qmgvd10zwbf.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_174169_qmgvd10zwbf.svg#iconfont') format('svg');
+  src: url('/images/social-icons.woff') format('woff'),
+       url('/images/social-icons.svg') format('svg');
 }
 
 .icon {
@@ -35,10 +32,6 @@
 
 .icon-jsfiddle::before { content: "\e753"; }
 
-.icon-weibo::before { content: "\e892"; }
-
-.icon-wechat::before { content: "\e628"; }
-
 .icon-dribbble::before { content: "\e696"; }
 
 .icon-rss::before { content: "\e6ee"; }
@@ -47,15 +40,7 @@
 
 .icon-up::before { content: "\e734"; }
 
-.icon-behance::before { content: "\e601"; }
-
-.icon-douban::before { content: "\e613"; }
-
-.icon-quora::before { content: "\e61b"; }
-
 .icon-email::before { content: "\e664"; }
-
-.icon-bilibili::before { content: "\e64e"; }
 
 .icon-codepen::before { content: "\e9eb"; }
 
@@ -65,15 +50,11 @@
 
 .icon-google::before { content: "\e886"; }
 
-.icon-zhihu::before { content: "\e88b"; }
-
 .icon-instagram::before { content: "\e88f"; }
 
 .icon-linkedin::before { content: "\f1e7"; }
 
 .icon-medium::before { content: "\f1ef"; }
-
-.icon-npm::before { content: "\f1fe"; }
 
 .icon-vimeo::before { content: "\f25a"; }
 

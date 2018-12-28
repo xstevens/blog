@@ -1,6 +1,6 @@
 #baseURL = "http://localhost:1313/"
 languageCode = "en-us"
-title = "Exported"
+title = "@xstevens"
 theme = "nuo"
 copyright = "This work is licensed under a Creative Commons Attribution 4.0 International License."
 PygmentsCodeFences = true
@@ -10,4 +10,5 @@ author = "Xavier Stevens"
 github = "xstevens"
 twitter = "xstevens"
 avatar = "images/avatar.png"
+iconAndroid = "images/avatar.png"
 paginate = 10
