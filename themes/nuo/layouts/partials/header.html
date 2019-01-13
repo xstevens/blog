@@ -37,10 +37,10 @@
   <nav class="social-menu collapsed">
     <h2 class="offscreen">Social Networks</h2>
     <ul class="social-list">
-        {{- with .Site.Params.email -}}<li class="social-item"><a href="mailto:{{ . }}" title="Email"><span class="icon icon-email"></span></a></li>{{- end -}}
-        {{- with .Site.Params.github -}}<li class="social-item"><a href="https://github.com/{{ . }}" title="GitHub"><span class="icon icon-github"></span></a></li>{{- end -}}
-        {{- with .Site.Params.twitter -}}<li class="social-item"><a href="https://twitter.com/{{ . }}" title="Twitter"><span class="icon icon-twitter"></span></a></li>{{- end -}}
-        {{- with .Site.Params.rss -}}<li class="social-item"><a rel="alternate" type="application/rss+xml" href="{{ . | relURL }}" title="RSS"><span class="icon icon-rss"></span></a></li>{{- end -}}
+        {{- with .Site.Params.email -}}<li class="social-item"><a href="mailto:{{ . }}" title="Email"><span class="fas fa-at"></span></a></li>{{- end -}}
+        {{- with .Site.Params.github -}}<li class="social-item"><a href="https://github.com/{{ . }}" title="GitHub"><span class="fab fa-github"></span></a></li>{{- end -}}
+        {{- with .Site.Params.twitter -}}<li class="social-item"><a href="https://twitter.com/{{ . }}" title="Twitter"><span class="fab fa-twitter"></span></a></li>{{- end -}}
+        {{- with .Site.Params.rss -}}<li class="social-item"><a rel="alternate" type="application/rss+xml" href="{{ . | relURL }}" title="RSS"><span class="fas fa-rss"></span></a></li>{{- end -}}
       </ul>
   </nav>
 </header>
