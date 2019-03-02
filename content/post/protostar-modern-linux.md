@@ -1,11 +1,11 @@
 ---
-title: "Protostar exercises on a modern Linux kernel"
+title: "Protostar exercises on modern Linux"
 date: 2018-12-20T18:29:00-08:00
 ---
 
 Sometime in the past few months the `exploit-exercises.com` domain expired and you can no longer download the VMs from there. Which had me wondering, what would it take to simulate the exploitation experience on a more modern version of Linux. 
 
-The original version used Debian 6.0 with kernel version 2.6.32. That is quite a while ago. Instead of installing an old version of Debian, we can start with Ubuntu 18.04 64-bit desktop and build up from there. First, we need libc development headers and I realized after some compiler errors that we also need `gcc-multilib` to be able to compile 32-bit binaries.
+The original version used Debian 6.0 with kernel version 2.6.32. That is a while ago. Instead of installing an old version of Debian, we can start with Ubuntu 18.04 64-bit desktop and build up from there. First, we need libc development headers and I realized after some compiler errors that we also need `gcc-multilib` to be able to compile 32-bit binaries.
 
 ```console
 $ sudo apt-get install -y linux-libc-dev gcc-multilib
