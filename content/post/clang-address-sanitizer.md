@@ -1,6 +1,6 @@
 ---
 title: "Using LLVM AddressSanitizer to Detect Overflows"
-date: 2018-05-08T20:50:00-08:00
+date: 2019-05-08T20:50:00-08:00
 ---
 One topic of security that has perked my interest for a while is [fuzzing](https://en.wikipedia.org/wiki/Fuzzing). It's certainly not a new topic and although I've been aware of it, I haven't really done that much hands on work with it outside of web application fuzzing. In this post, I wanted to get the very basics of using fuzzing as a building block for exploit development.
 
