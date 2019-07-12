@@ -18,7 +18,7 @@
       url format "//vjs.zencdn.net/v/oceans.webm"
       path format "/media/posts/hugo-nuo-post-preview/videojs.webm"
 
-    - Video `ogv`
+  - Video `ogv`
 
       required param
       ogv video url or path
@@ -66,24 +66,24 @@
 */}}
 
 {{/* DEFAULTS */}}
-{{ $poster := "/images/poster.jpg" }}
+{{- $poster := resources.Get (.Site.Params.poster | default "images/poster.jpg") -}}
 
 {{ if .IsNamedParams }}
 
-  <video id="my-player" class="video-js vjs-big-play-centered" controls preload="auto" poster="{{ or (.Get "poster") $poster }}" data-setup="{}">
+  <video id="my-player" class="video-js vjs-big-play-centered" controls preload="auto" poster="{{ or (.Get "poster") $poster.RelPermalink }}" data-setup="{}">
     <source src="{{ .Get "mp4" }}" type="video/mp4"></source>
     <source src="{{ .Get "webm" }}" type="video/webm"></source>
     <source src="{{ .Get "ogv" }}" type=video/ogg></source>
-    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank" rel="noopener">supports HTML5 video</a></p>
   </video>
 
 {{ else }}
 
-  <video id="my-player" class="video-js vjs-big-play-centered" controls preload="auto" poster="{{ if isset .Params 3 }}{{ .Get 3 }}{{ else }}{{ $poster }}{{ end }}" data-setup="{}">
+  <video id="my-player" class="video-js vjs-big-play-centered" controls preload="auto" poster="{{ if isset .Params 3 }}{{ .Get 3 }}{{ else }}{{ $poster.RelPermalink }}{{ end }}" data-setup="{}">
     <source src="{{ .Get 0 }}" type="video/mp4"></source>
     <source src="{{ .Get 1 }}" type="video/webm"></source>
     <source src="{{ .Get 2 }}" type="video/ogg"></source>
-    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+    <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank" rel="noopener">supports HTML5 video</a></p>
   </video>
 
 {{ end }}

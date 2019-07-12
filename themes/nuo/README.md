@@ -1,5 +1,4 @@
-Hugo Nuo
-========
+# Hugo Nuo
 
 Hugo Nuo is an responsive light & clean hugo theme for blogger. This theme features several page layout, like an [about page](https://laozhu.me/about/) for your portfolio, a [links page](https://laozhu.me/links/) for your friends' blog, a [tags page](https://laozhu.me/tags/) for your tags cloud, a works page is under development. This theme makes many third-party hugo shortcodes, including [Codepen](https://codepen.io/), [JSFiddle](https://jsfiddle.net/), [Video.js](http://videojs.com/), ~~Music 163~~ and [Sheng Xiang](https://ppt.baomitu.com/), [Asciinema](https://asciinema.org/).
 
@@ -16,9 +15,12 @@ Inside the folder of your Hugo site run:
 ```bash
 $ cd themes
 $ git clone https://github.com/laozhu/hugo-nuo
+
+# Change theme field to 'hugo-nuo' in your config.toml
+# Or just copy exampleSite/config.toml
 ```
 
-*For more information read the official [setup guide](https://gohugo.io/overview/installing/) of Hugo.*
+_For more information read the official [setup guide](https://gohugo.io/overview/installing/) of Hugo._
 
 ## Getting Started
 
@@ -56,10 +58,10 @@ Or you can add some other page to menu in page's front matter:
 
 ```markdown
 ---
-title: "Links"
+title: 'Links'
 date: 2017-08-02
-layout: "links"
-menu: "main"
+layout: 'links'
+menu: 'main'
 weight: 40
 ---
 ```
@@ -91,9 +93,17 @@ The following social network icons are available:
   zhihu = "zhihu_username"
   douban = "douban_username"
   bilibili = "bilibili_id_number"
+  codesandbox = "codesandbox_username"
+  stackoverflow = "stackoverflow_username"
+  npm = "npm_username"
+  reddit = "reddit_username"
 ```
 
 You can choose someone to display, the recommend number is 7 icons.
+
+Icons are provided by [iconfont](https://www.iconfont.cn/) by default, but you
+can choose to use [FontAwesome](https://fontawesome.com/) instead by adding
+`fontAwesome = true` to the `[params]` section.
 
 **SEO**
 
@@ -107,19 +117,19 @@ The hugo-nuo theme support [Google](https://www.google.com/webmasters/), [Bing](
   # Google Webmaster
   # https://www.google.com/webmasters/
   googleSiteVerification = "google_site_verification_code"
-  
+
   # Bing Webmaster
   # https://www.bing.com/toolbox/webmaster/
   msValidate = "bing_site_verification_code"
-  
+
   # Baidu Webmaster (China Only)
   # https://zhanzhang.baidu.com/
   # baiduSiteVerification = "baidu_site_verification_code"
-  
+
   # Sogou Webmaster (China Only)
   # http://zhanzhang.sogou.com/
   # sogouSiteVerification = "sogou_site_verification_code"
-  
+
   # 360 Webmaster (China Only)
   # http://zhanzhang.so.com/
   # soSiteVerification = "360_site_verification_code"
@@ -156,6 +166,18 @@ disqusShortname = "disqus_shortname"
 
 If you want to use Disqus, you should disable `changyan` to `false`.
 
+**🆕 Medium Zoom**
+
+If you want medium-like photo zoom in your post, you can add `zoomable` class to your `img` or `figure` tag, just something like below:
+
+```html
+<img src="/media/posts/hugo-nuo-post-preview/01.jpg" class="zoomable">
+```
+
+```markdown
+{{% figure src="/media/posts/hugo-nuo-post-preview/01.jpg" alt="这是一只梅花鹿" title="显然，这是一只梅花鹿" class="zoomable" %}}
+```
+
 ### The works page
 
 The works page layout is under development, you can use github homepage for replacement temporarily.
@@ -170,7 +192,7 @@ The works page layout is under development, you can use github homepage for repl
 
 ### The tags page
 
-Thanks to [@bwangelme](https://github.com/bwangelme)'s great [PR](https://github.com/laozhu/hugo-nuo/pull/37), the tags page has been done, you can use this page by adding it to main menu.  
+Thanks to [@bwangelme](https://github.com/bwangelme)'s great [PR](https://github.com/laozhu/hugo-nuo/pull/37), the tags page has been done, you can use this page by adding it to main menu.
 
 ```toml
 [[menu.main]]
@@ -195,31 +217,31 @@ Change the content of `links.md`, set page layout to `links`, If you want to add
 
 ```markdown
 ---
-title: "Links"
+title: 'Links'
 date: 2017-08-02
-layout: "links"
-menu: "main"
+layout: 'links'
+menu: 'main'
 weight: 40
 ---
 ```
 
-The links page read data from `data/link.yml` file, now you can add friend's links there. The format looks like:
+The links page read data from `data/links.toml` file, now you can add friend's links there. The format looks like:
 
-```yaml
-01_link:
-  title: chekun's blog
-  link: https://chekun.me
-  avatar: /media/links/chekun.jpg
-  description: A full-stack PHP developer
+```toml
+[chekun]
+  title = "chekun's blog"
+  link = "https://chekun.me"
+  avatar = "/media/links/chekun.jpg"
+  description = "A full-stack developer"
 
-02_link:
-  title: Boof Wang
-  link: http://boof.wang
-  avatar: /media/links/wangbo.jpg
-  description: Another full-stack PHP developer
+[wangbo]
+  title = "Boof Wang"
+  link = "http://boof.wang"
+  avatar = "/media/links/wangbo.jpg"
+  description = "Another full-stack developer"
 ```
 
-The links page need friend's avatar, finally you should add friend's avatar to `content/media/links` directory and link to avatar in the `links.yml` file.
+The links page need friend's avatar, finally you should add friend's avatar to `content/media/links` directory and link to avatar in the `links.toml` file.
 
 ### The about page
 
@@ -234,10 +256,10 @@ Change the content of `about.md`, set page layout to `about`, If you want to add
 
 ```markdown
 ---
-title: "About"
+title: 'About'
 date: 2017-08-02
-layout: "about"
-menu: "main"
+layout: 'about'
+menu: 'main'
 weight: 50
 comments: false
 ---
@@ -271,17 +293,66 @@ The resume page will be located at `/resume` off your website root. Different
 from the about page, the resume page is intended as a one pager that you
 can print out for job hunting.
 
+## Custom theme
+
+If you don't want change default theme SCSS files, you can override styles with an custom SCSS file. Set file in your `config.toml` as below.
+
+```toml
+[params]
+  # Overrid theme styles in this file
+  customStyle = "styles/custom.scss"
+```
+
+Then create `styles/custom.scss` file and write your own styles there. your custom rules will override the default ones. you can place custom.scss in theme-scoped or site-scoped assets folder.
+
+```
+.
+├── README.md
+├── assets
+│   └── styles
+│       └── custom.scss ✅
+├── config.toml
+├── content
+└── themes
+    └── hugo-nuo
+        ├── assets
+            │   ├── images
+            │   ├── scripts
+            │   ├── service-worker.js
+            │   └── styles
+                    ├── partials
+                    ├── main.scss
+            │       └── custom.scss ✅
+            └── theme.toml
+```
+
+If you want to change avatar or favicons without modifying this theme, just copy `themes/hugo-nuo/assets` and `themes/hugo-nuo/static` to your blog root dir and keep the filename the same with theme.
+
+```bash
+~/D/@/my-blog ❯❯❯ tree -L 2
+.
+├── config.toml
+├── assets
+│   └── images          <-- replace images
+├── static
+│   ├── favicon.ico     <-- replace favicon.ico
+│   ├── icons           <-- replace icons
+│   └── manifest.json
+└── themes
+    └── hugo-nuo
+```
+
+Above is your blog repo structure, now you can replace images with your own, and don't need to modify theme anymore.
+
 ## Build
 
 > **⚠️ Big Change**
 >
-> This theme has been using hugo pipes instead of webpack now.
+> This theme has been using hugo pipes instead of webpack now, no build package needed now.
 
-I use Hugo pipes and [PostCSS](https://gohugo.io/hugo-pipes/postcss/) to tranpile CSS, you should install devDependencies in `package.json` first if you want to cutomize the `./assets/styles` css files.
+I use [ImageOptim](https://imageoptim.com/) to make images load faster, I recommend this tool to you.
 
-I use [ImageOptim](https://imageoptim.com/) to make images load faster, you should install this app before you run `yarn imagemin` script.
-
-*From Hugo 0.28, the default syntax hightlighter in Hugo is [Chroma](https://github.com/alecthomas/chroma); it is built in Go and is really, really fast – and for the most important parts compatible with [Pygments](http://pygments.org/).*
+_From Hugo 0.28, the default syntax hightlighter in Hugo is [Chroma](https://github.com/alecthomas/chroma); it is built in Go and is really, really fast – and for the most important parts compatible with [Pygments](http://pygments.org/)._
 
 ```bash
 $ hugo gen chromastyles --style=monokai > ./src/styles/partials/syntax.css
@@ -294,16 +365,17 @@ Run hugo gen `chromastyles -h` for more options. See <https://help.farbox.com/py
 In order to see your site in action, run Hugo's built-in local server.
 
 ```bash
-$ hugo server -w
+$ hugo server
 ```
 
 Now enter [localhost:1313](http://localhost:1313) in the address bar of your browser.
 
 ## Credits
 
+- [Medium Zoom](https://medium-zoom.francoischalifour.com/)
 - [Video.js](http://videojs.com/)
 - [MathJax](https://www.mathjax.org/)
 - [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
-- [BootCDN](http://www.bootcdn.cn/)
+- [jsDelivr](https://www.jsdelivr.com/)
 
 Also thanks to [Steve Francia](https://github.com/spf13) for creating [Hugo](https://gohugo.io/) and the awesome community around the project.

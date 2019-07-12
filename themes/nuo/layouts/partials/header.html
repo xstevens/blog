@@ -1,5 +1,4 @@
-{{- $wechat := resources.Get (.Site.Params.wechat | default "/images/qrcode.jpg") -}}
-{{- $avatar := resources.Get (.Site.Params.avatar | default "/images/avatar.jpg") -}}
+{{- $avatar := resources.Get (.Site.Params.avatar | default "images/avatar.png") -}}
 
 <header class="site-header">
   <img class="avatar" src="{{ $avatar.RelPermalink }}" alt="Avatar">
@@ -9,9 +8,10 @@
   <h2 class="title">{{ .Site.Title }}</h2>
   {{ end }}
   <p class="subtitle">{{ .Site.Params.subtitle }}</p>
-  <button class="menu-toggle" type="button">
-    <span class="icon icon-menu"></span>
+  <button class="menu-toggle" type="button" aria-label="Main Menu" aria-expanded="false" tab-index="0">
+    <span class="icon icon-menu" aria-hidden="true"></span>
   </button>
+
   <nav class="site-menu collapsed">
     <h2 class="offscreen">Main Menu</h2>
     <ul class="menu-list">
@@ -20,27 +20,107 @@
       {{ $currentPage := . }}
       {{ range .Site.Menus.main }}
         <li class="menu-item
-            {{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
-              is-active
-            {{ end }}
-            {{ if and (eq .Identifier "tags") (and (eq $type "page") (or (eq $kind "taxonomyTerm") (eq $kind "taxonomy"))) }}
-              is-active
-            {{ end }}
-            {{ if and (eq .Identifier "home") (eq $type "post") }}
-              is-active
-            {{ end }}">
-            <a href="{{ .URL }}">{{ .Name }}</a>
-          </li>
+          {{ if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} is-active{{ end }}
+          {{ if and (eq .Identifier "tags") (eq $kind "taxonomy") }} is-active{{ end }}
+          {{ if and (eq .Identifier "home") (eq $type "post") }} is-active{{ end }}">
+          <a href="{{ .URL }}">{{ .Name }}</a>
+        </li>
       {{ end }}
     </ul>
   </nav>
   <nav class="social-menu collapsed">
     <h2 class="offscreen">Social Networks</h2>
     <ul class="social-list">
-        {{- with .Site.Params.email -}}<li class="social-item"><a href="mailto:{{ . }}" title="Email"><span class="fas fa-at"></span></a></li>{{- end -}}
-        {{- with .Site.Params.github -}}<li class="social-item"><a href="https://github.com/{{ . }}" title="GitHub"><span class="fab fa-github"></span></a></li>{{- end -}}
-        {{- with .Site.Params.twitter -}}<li class="social-item"><a href="https://twitter.com/{{ . }}" title="Twitter"><span class="fab fa-twitter"></span></a></li>{{- end -}}
-        {{- with .Site.Params.rss -}}<li class="social-item"><a rel="alternate" type="application/rss+xml" href="{{ . | relURL }}" title="RSS"><span class="fas fa-rss"></span></a></li>{{- end -}}
-      </ul>
+      {{- $emailIcon := "fas fa-envelope" -}}
+      {{- $githubIcon := "fab fa-github" -}}
+      {{- $twitterIcon := "fab fa-twitter" -}}
+      {{- $youtubeIcon := "fab fa-youtube" -}}
+      {{- $vimeoIcon := "fab fa-vimeo" -}}
+      {{- $mediumIcon := "fab fa-medium" -}}
+      {{- $redditIcon := "fab fa-reddit" -}}
+      {{- $stackoverflowIcon := "fab fa-stack-overflow" -}}
+      {{- $linkedinIcon := "fab fa-linkedin" -}}
+      {{- $rssIcon := "fas fa-rss" -}}
+
+      {{- with .Site.Params.email -}}
+        <li class="social-item">
+          <a href="mailto:{{ . }}" title="Email" aria-label="Email">
+            <span class="{{ $emailIcon }}" aria-hidden="true"></span>
+          </a>
+        </li>
+      {{- end -}}
+
+      {{- with .Site.Params.github -}}
+        <li class="social-item">
+          <a href="//github.com/{{ . }}" rel="me" title="GitHub" aria-label="GitHub">
+	    <span class="{{ $githubIcon }}" aria-hidden="true"></span>
+          </a>
+        </li>
+      {{- end -}}
+
+      {{- with .Site.Params.twitter -}}
+        <li class="social-item">
+          <a href="//twitter.com/{{ . }}" rel="me" title="Twitter" aria-label="Twitter">
+            <span class="{{ $twitterIcon }}" aria-hidden="true"></span>
+          </a>
+        </li>
+      {{- end -}}
+
+      {{- with .Site.Params.youtube -}}
+        <li class="social-item">
+          <a href="//www.youtube.com/user/{{ . }}" rel="me" title="YouTube" aria-label="YouTube">
+            <span class="{{ $youtubeIcon }}" aria-hidden="true"></span>
+          </a>
+        </li>
+      {{- end -}}
+
+      {{- with .Site.Params.vimeo -}}
+        <li class="social-item">
+          <a href="//vimeo.com/{{ . }}" rel="me" title="Vimeo" aria-label="Vimeo">
+            <span class="{{ $vimeoIcon }}" aria-hidden="true"></span>
+          </a>
+        </li>
+      {{- end -}}
+
+      {{- with .Site.Params.medium -}}
+        <li class="social-item">
+          <a href="//medium.com/@{{ . }}" rel="me" title="Medium" aria-label="Medium">
+            <span class="{{ $mediumIcon }}" aria-hidden="true"></span>
+          </a>
+        </li>
+      {{- end -}}
+
+      {{- with .Site.Params.reddit -}}
+        <li class="social-item">
+          <a href="//www.reddit.com/user/{{ . }}" rel="me" title="Reddit" aria-label="Reddit">
+            <span class="{{ $redditIcon }}" aria-hidden="true"></span>
+          </a>
+        </li>
+      {{- end -}}
+
+      {{- with .Site.Params.stackoverflow -}}
+        <li class="social-item">
+          <a href="//stackoverflow.com/users/{{ . }}" rel="me" title="Stack Overflow"  aria-label="Stack Overflow">
+            <span class="{{ $stackoverflowIcon }}" aria-hidden="true"></span>
+          </a>
+        </li>
+      {{- end -}}
+
+      {{- with .Site.Params.linkedin -}}
+        <li class="social-item">
+          <a href="//www.linkedin.com/in/{{ . }}" rel="me" title="LinkedIn" aria-label="LinkedIn">
+            <span class="{{ $linkedinIcon }}" aria-hidden="true"></span>
+          </a>
+        </li>
+      {{- end -}}
+
+      {{- with .Site.Params.rss -}}
+        <li class="social-item">
+          <a rel="alternate" type="application/rss+xml" href="{{ . | relURL }}" title="RSS" aria-label="RSS">
+            <span class="{{ $rssIcon }}" aria-hidden="true"></span>
+          </a>
+        </li>
+      {{- end -}}
+    </ul>
   </nav>
 </header>
