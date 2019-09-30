@@ -1,5 +1,5 @@
 ---
-title: "Protostar exercises on modern Linux"
+title: "Protostar Exercises on Modern Linux"
 date: 2018-12-20T18:29:00-08:00
 ---
 
