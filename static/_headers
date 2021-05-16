@@ -4,6 +4,5 @@
     X-XSS-Protection: 1; mode=block
     X-Content-Type-Options: nosniff
     Referrer-Policy: no-referrer
-    Feature-Policy: autoplay 'none'; camera 'none'; document-domain 'self'; geolocation 'none'; microphone 'none'; midi 'none'; notifications 'none'; push 'none'; payment 'none'; sync-xhr 'self'
     Expect-CT: max-age=0, report-uri="https://xstevens.report-uri.com/r/d/ct/reportOnly"
-    Permissions-Policy: interest-cohort=()
+    Permissions-Policy: autoplay(), camera(), document-domain('self'), geolocation(), microphone(), midi(), notifications(), push(), payment(), sync-xhr('self'), vibrate=(), magnetometer=(), gyroscope=(), speaker=(), fullscreen=(), interest-cohort=()
