@@ -5,4 +5,4 @@
     X-Content-Type-Options: nosniff
     Referrer-Policy: no-referrer
     Expect-CT: max-age=0, report-uri="https://xstevens.report-uri.com/r/d/ct/reportOnly"
-    Permissions-Policy: autoplay=(), camera=(), document-domain=(self), geolocation=(), microphone=(), midi=(), notifications=(), push=(), payment=(), sync-xhr=(self), vibrate=(), magnetometer=(), gyroscope=(), speaker=(), fullscreen=(), interest-cohort=()
+    Permissions-Policy: autoplay=(), camera=(), document-domain=(self), geolocation=(), microphone=(), midi=(), payment=(), sync-xhr=(self), magnetometer=(), gyroscope=(), fullscreen=(), interest-cohort=()
