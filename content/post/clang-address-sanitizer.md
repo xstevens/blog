@@ -41,7 +41,7 @@ stack5.c:10:3: warning: implicit declaration of function 'gets' is invalid in C9
 stack5.c:10: warning: the `gets' function is dangerous and should not be used.
 ```
 
-Lets say we were looking for new potential areas for an exploit; ignoring that this program is extremely simple. A nieve approach for our first fuzzing program might look something like this:
+Lets say we were looking for new potential areas for an exploit; ignoring that this program is extremely simple. A naive approach for our first fuzzing program might look something like this:
 
 ```python
 import os
