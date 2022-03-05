@@ -13,9 +13,6 @@
 {{- $style := resources.Get "styles/main.scss" | resources.ExecuteAsTemplate "styles/main-rendered.scss" . | resources.ToCSS | resources.Minify -}}
 {{- $customStyle := resources.Get (.Site.Params.customStyle | default "styles/custom.scss") | resources.ToCSS | resources.Minify -}}
 
-  <!-- DNS Prefetch -->
-  <link href="//cdn.jsdelivr.net" rel="dns-prefetch">
-
   {{ if and (eq .Kind "page") (eq .Type "post") }}
 
   <!-- Page Author & Description -->
@@ -103,6 +100,6 @@
   }
 </style>
 <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/brands.min.css" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+<link rel="stylesheet" href="/css/brands.min.css" />
+<link rel="stylesheet" href="/css/fontawesome.min.css" />
 {{ with .Site.Params.customStyle }}<link rel="stylesheet" href="{{ $customStyle.RelPermalink }}">{{ end }}
