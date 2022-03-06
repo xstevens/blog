@@ -1,7 +1,7 @@
 var cacheName = 'hugo-nuo-v5';
 var filesToCache = [
   '404.html',
-  'favicon.ico',
+  'favicon.png',
   'manifest.json',
   'icons/icon-16x16.png',
   'icons/icon-32x32.png',
