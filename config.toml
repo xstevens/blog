@@ -11,4 +11,5 @@ github = "xstevens"
 twitter = "xstevens"
 avatar = "images/avatar.png"
 iconAndroid = "images/avatar.png"
+favicon = "favicon.png"
 paginate = 10

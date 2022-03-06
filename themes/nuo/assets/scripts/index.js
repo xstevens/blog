@@ -50,10 +50,12 @@ window.addEventListener('scroll', function() {
   lastPosition = body.scrollTop === 0 ? html.scrollTop : body.scrollTop;
   if (!ticking) {
     window.requestAnimationFrame(function() {
-      if (lastPosition >= 600) {
-        toTopBtn.classList.remove('is-hide');
-      } else {
-        toTopBtn.classList.add('is-hide');
+      if (toTopBtn != null) {
+        if (lastPosition >= 600) {
+          toTopBtn.classList.remove('is-hide');
+        } else {
+          toTopBtn.classList.add('is-hide');
+        }
       }
       ticking = false;
     });
