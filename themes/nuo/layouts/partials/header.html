@@ -34,6 +34,7 @@
       {{- $emailIcon := "fas fa-envelope" -}}
       {{- $githubIcon := "fab fa-github" -}}
       {{- $twitterIcon := "fab fa-twitter" -}}
+      {{- $mastodonIcon := "fab fa-mastodon" -}}
       {{- $youtubeIcon := "fab fa-youtube" -}}
       {{- $vimeoIcon := "fab fa-vimeo" -}}
       {{- $mediumIcon := "fab fa-medium" -}}
@@ -62,6 +63,14 @@
         <li class="social-item">
           <a href="//twitter.com/{{ . }}" rel="me" title="Twitter" aria-label="Twitter">
             <span class="{{ $twitterIcon }}" aria-hidden="true"></span>
+          </a>
+        </li>
+      {{- end -}}
+
+      {{- with .Site.Params.mastodon -}}
+        <li class="social-item">
+          <a href="//{{ . }}" rel="me" title="Mastodon" aria-label="Mastodon">
+            <span class="{{ $mastodonIcon }}" aria-hidden="true"></span>
           </a>
         </li>
       {{- end -}}
