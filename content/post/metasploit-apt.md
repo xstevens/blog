@@ -112,7 +112,7 @@ jammy
 
 Combining all of the above into a new install_deb shell function we come up with the following:
 
-```
+```console
 install_deb() {
   LIST_FILE=/etc/apt/sources.list.d/metasploit-framework.list
   PREF_FILE=/etc/apt/preferences.d/pin-metasploit.pref
