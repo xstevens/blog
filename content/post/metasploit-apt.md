@@ -18,7 +18,7 @@ Building dependency tree... Done
 Reading state information... Done
 ```
 
-Not the end the world but it seemed odd that a default update script would produce warnings. First, I wanted to verify where `msfupdate` was from and make sure it wasn't out of date.
+Not the end the world, but it seemed odd that a default update script would produce warnings. First, I wanted to verify where `msfupdate` was from and make sure it wasn't out of date.
 
 ```console
 $ which msfupdate
@@ -82,7 +82,7 @@ Funny thing with Linux distros is that everyone has their own opinions and on my
 $ sudo apt-key list
 ```
 
-The last thing is if we do a general browse of the distro releases we'll notice that the ones listed on `apt.metasploit.com` are pretty old. Here's a the list as seen in January 2024 organized by distribution and release version.
+The last thing, if we do a general browse of the distro releases, we'll notice that the ones listed on `apt.metasploit.com` are pretty old. Here's a the list as seen in January 2024 organized by distribution and release version.
 
 - [Debian](https://www.debian.org/releases/)
     - 7 / wheezy
