@@ -76,10 +76,23 @@ DEPRECATION
        Signed-By option can also be used to include the full ASCII armored keyring directly in the sources.list without an additional file.
 ```
 
-Funny thing with Linux distros is that everyone has their own opinions and on my host `/usr/share/keyrings` is being used rather than the recommendation ¯\_(ツ)_/¯. Either location seems fine, but we'll use `/usr/share/keyrings` for consistency on Ubuntu.
+Funny thing with Linux distros is that everyone has their own opinions and on my host `/usr/share/keyrings` is being used rather than the recommendation ¯\_(ツ)_/¯. Either location seems fine, but we'll use `/usr/share/keyrings` for consistency on Ubuntu. 
+
+We also need to get delete the key from `/etc/apt/trusted.gpg` so we stop getting the warning message. We can do this using the `apt-key` sub-commands.
 
 ```console
-$ sudo apt-key list
+$ apt-key list
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+/etc/apt/trusted.gpg
+--------------------
+
+pub   rsa4096 2012-12-06 [SC] [expires: 2029-09-02]
+      09E5 5FAF 4F78 62CD 6D55  8997 CDFB 5FA5 2007 B954
+uid           [ unknown] Metasploit <metasploit@rapid7.com>
+sub   rsa4096 2012-12-06 [E] [expires: 2029-09-02]
+$ sudo apt-key del 2007B954
+Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (see apt-key(8)).
+OK
 ```
 
 The last thing, if we do a general browse of the distro releases, we'll notice that the ones listed on `apt.metasploit.com` are pretty old. Here's a the list as seen in January 2024 organized by distribution and release version.
