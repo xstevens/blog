@@ -95,7 +95,7 @@ Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead (s
 OK
 ```
 
-The last thing, if we do a general browse of the distro releases, we'll notice that the ones listed on `apt.metasploit.com` are pretty old. Here's a the list as seen in January 2024 organized by distribution and release version.
+The last thing, if we do a general browse of the distro releases, we'll notice that the ones listed on `apt.metasploit.com` are pretty old. Here's the list as seen in January 2024 organized by distribution and release version.
 
 - [Debian](https://www.debian.org/releases/)
     - 7 / wheezy
@@ -149,3 +149,5 @@ EOF
 ```
 
 This gets us to a nice clean and warning free install. Happy hacking!
+
+**UPDATE:** After spelunking through [metasploit issues](https://github.com/rapid7/metasploit-framework/issues/17636), I discovered that they separate the installer issues out into the metasploit-omnibus project. A Github user has [put up a pull request](https://github.com/rapid7/metasploit-omnibus/pull/192) to resolve the `apt-key` issue.
