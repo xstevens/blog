@@ -8,7 +8,6 @@ PygmentsCodeFences = true
 [params]
 author = "Xavier Stevens"
 github = "xstevens"
-twitter = "xstevens"
 mastodon = "infosec.exchange/@xstevens"
 avatar = "images/avatar.png"
 iconAndroid = "images/avatar.png"

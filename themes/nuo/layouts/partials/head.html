@@ -41,13 +41,6 @@
   {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
   {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@{{ .Site.Params.twitter | default $gohugoio }}">
-  <meta name="twitter:title" content="{{ if isset .Site.Params "seotitle" }}{{ .Site.Params.seotitle }}{{ else }}{{ .Site.Title }}{{ end }}">
-  {{ with .Site.Params.description }}<meta name="twitter:description" content="{{ . }}">{{ end }}
-  <meta name="twitter:image" content="{{ $avatar.RelPermalink }}">
-
 {{ end }}
 
 <!-- Site Generator -->
@@ -95,11 +88,6 @@
 <link rel="preload" href="{{ $bg.RelPermalink }}" as="image">
 
 <!-- Main Styles -->
-<style>
-  body {
-    background: rgb(244, 243, 241) url('{{ $bg.RelPermalink }}') repeat fixed;
-  }
-</style>
 <link rel="stylesheet" href="{{ $style.RelPermalink }}" />
 <link rel="stylesheet" href="/css/brands.min.css" />
 <link rel="stylesheet" href="/css/fontawesome.min.css" />

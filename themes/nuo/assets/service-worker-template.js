@@ -16,7 +16,6 @@ var filesToCache = [
   'images/qrcode.jpg',
   'styles/main-rendered.min.css',
 {{ with .Site.Params.customStyle }}'styles/custom.min.css',{{ end }}
-  'scripts/index.min.js'
 ];
 
 // Cache the application assets
