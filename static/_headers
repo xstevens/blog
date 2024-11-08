@@ -1,5 +1,5 @@
 /*
-    Content-Security-Policy: default-src 'none'; script-src 'none'; style-src 'self'; img-src 'self'; font-src 'self'; frame-ancestors 'none'; manifest-src 'self'; upgrade-insecure-requests; report-uri https://xstevens.report-uri.com/r/d/csp/enforce
+    Content-Security-Policy: default-src 'none'; script-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; frame-ancestors 'none'; manifest-src 'self'; upgrade-insecure-requests; report-uri https://xstevens.report-uri.com/r/d/csp/enforce
     X-Frame-Options: DENY
     X-XSS-Protection: 1; mode=block
     X-Content-Type-Options: nosniff
